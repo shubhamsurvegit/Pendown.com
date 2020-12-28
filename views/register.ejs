@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../styles/register.css">
+</head>
+<body>
+    <nav class="nav">
+        <ul>
+            <a href="home">Home</a>
+            <a href="article">Write Article</a>
+            <a href="myarticles">My Articles</a>
+            <a href="allarticles" >All Articles</a>
+            <a href="login">Login</a>
+            <a href="logout">Logout</a>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <form method="POST" action="/register">
+            <h2>Register</h2>
+            <%- include ('partials/message.ejs') %>
+            <input name="username" placeholder="username" value="<%=typeof data!=='undefined'?data.username:''%>">
+            <input name="email" placeholder="email" type="email" value="<%=typeof data!=='undefined'?data.email:''%>">
+            <input name="password" placeholder="password" type="password">
+            <input name="confirmpassword" placeholder="confirm password" type="password">
+            <button>Register</button>
+            <p><a href="/login">Already Have a account?</a></p>
+        </form>
+    </div>
+</body>
+</html>

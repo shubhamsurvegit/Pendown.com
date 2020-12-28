@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/5c174d451e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/myarticles.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <ul>
+            <a href="home">Home</a>
+            <a href="article">Write Article</a>
+            <a href="myarticles">My Articles</a>
+            <a href="allarticles" >All Articles</a>
+            <a href="login">Login</a>
+            <a href="logout">Logout</a>
+        </ul>
+    </nav>
+    <%if(typeof userdata!='undefined'){%> 
+        <div class="container">
+            <%userdata.article.forEach(i=>{%>
+                    <div>
+                        <h3 style="color: green;"><%=i.article_title%></h3>
+                        <p id="id" style="display: none;"><%=i._id%></p>
+                        <textarea id="edit" readonly rows="10" cols="110"><%=i.article_content%></textarea>
+                        <i onclick="edit(event)" class="far fa-edit"></i>
+                        <a onclick="save(event)">Save</a>
+                    </div>
+            <%})%>
+        </div>
+    <%}else{%>
+        <div class="container">
+            <p>You have not wrote any article</p>
+            <p>Click on Write Article to get started</p>
+        </div>
+    <%}%>
+</body>
+</html>
+
+<script src="/styles/myorders.js"></script>

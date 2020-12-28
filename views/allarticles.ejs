@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/5c174d451e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/allarticles.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <nav class="nav">
+        <ul>
+            <a href="home">Home</a>
+            <a href="article">Write Article</a>
+            <a href="myarticles">My Articles</a>
+            <a href="allarticles" >All Articles</a>
+            <a href="login">Login</a>
+            <a href="logout">Logout</a>
+        </ul>
+    </nav>
+    <div class="container">
+        <%userdata.forEach((user)=>{%>
+            <%user.article.forEach(i=>{%>
+                <div>
+                    <h2 style="color: green;"><%=i.article_title%></h2>
+                    <h4 id="id" style="display: none;"><%=i._id%></h4>
+                    <h3 style="color: green;">Contributed By <span><%=user.username%></span></h3>
+                    <textarea id="edit" readonly rows="10" cols="110"><%=i.article_content%></textarea>
+                    <i onclick="fun(this,'<%=user.email%>')" class="fas fa-thumbs-up">   <%=i.article_likes%></i>
+                    <%const users=i.liked_by.filter(u=>u.email==email)%>
+                    <%if(users.length==1){%>
+                        <p style="display: none;" id="check">YES</p>
+                    <%}else{%>
+                        <p style="display: none;" id="check">NO</p>
+                    <%}%>
+                </div>
+            <%})%>
+        <%})%>
+        
+        
+    
+
+</body>
+</html>
+
+<script src="/styles/allarticles.js"></script>
