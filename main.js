@@ -9,7 +9,7 @@ app.use('/styles',express.static('styles'))
 app.use(session({secret: "Shh, its a secret!",resave:false}));
 
 const url="mongodb://localhost:27017/article/";
-const a= 'test2456'
+const a= 'test24567'
 
 mongoose.connect(url,{useNewUrlParser:true})
 .then(()=>console.log("mongo db connected"))
