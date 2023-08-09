@@ -8,8 +8,8 @@ app.set('view engine','ejs');
 app.use('/styles',express.static('styles'))
 app.use(session({secret: "Shh, its a secret!",resave:false}));
 
-const url="mongodb://localhost:27017/article";
-
+const url="mongodb://localhost:27017/article/";
+const a= 'test2'
 
 mongoose.connect(url,{useNewUrlParser:true})
 .then(()=>console.log("mongo db connected"))
